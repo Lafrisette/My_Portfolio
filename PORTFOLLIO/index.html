@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timothée Mendy | Portfolio Webcore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="scanlines"></div>
+    <div class="matrix-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">TM_SYSTEMS</div>
+            <ul class="nav-links">
+                <li><a href="#home">/HOME</a></li>
+                <li><a href="#about">/ABOUT</a></li>
+                <li><a href="#projects">/PROJECTS</a></li>
+                <li><a href="#contact">/CONTACT</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="glitch-text" data-text="TIMOTHÉE MENDY">TIMOTHÉE MENDY</p>
+                <h2 id="typing-text"></h2>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-neon">INITIALISER_CONTACT</a>
+                    <a href="CV_TimotheeMENDY_2025.pdf" download="CV_Timothee_Mendy.pdf" class="btn-download">
+                        <span class="icon">⇩</span> EXTRAIRE_CV.PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title"><span class="hash">#</span>PROFILE_DATA</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Étudiant en <strong>BUT Réseaux & Télécoms</strong> à l'Université Savoie Mont Blanc. Passionné par l'administration système et le développement web, je recherche une alternance.</p>
+                    <ul class="soft-skills">
+                        <li>> Travail d'équipe [cite: 9]</li>
+                        <li>> Polyvalent & Curieux [cite: 10]</li>
+                        <li>> Anglais & Allemand [cite: 13, 14]</li>
+                    </ul>
+                </div>
+                <div class="skills-wrapper">
+                    <div class="skill-card">
+                        <h3>DEV_WEB</h3>
+                        <p>HTML5, CSS, PHP, JS [cite: 46]</p>
+                        <div class="progress-bar"><div class="fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>RÉSEAU</h3>
+                        <p>Cisco, VLAN, OSPF, Wireshark [cite: 35, 36]</p>
+                        <div class="progress-bar"><div class="fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>SYS_ADMIN</h3>
+                        <p>Linux, Windows Server, AD DS [cite: 53, 60]</p>
+                        <div class="progress-bar"><div class="fill" style="width: 75%"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>SCRIPTING</h3>
+                        <p>Python, Bash, PowerShell [cite: 49, 60]</p>
+                        <div class="progress-bar"><div class="fill" style="width: 70%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2 class="section-title"><span class="hash">#</span>PROJECT_LOGS</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openModal('modal1')">
+                    <div class="card-overlay"></div>
+                    <h3>Gestion Utilisateurs</h3>
+                    <p class="tech-stack">[Bash, PowerShell, AD DS]</p>
+                    <p class="short-desc">Création automatisée de 100 utilisateurs & config DNS/DHCP.</p>
+                </div>
+                <div class="project-card" onclick="openModal('modal2')">
+                    <div class="card-overlay"></div>
+                    <h3>Site Web Dynamique</h3>
+                    <p class="tech-stack">[HTML, CSS, PHP, SQL]</p>
+                    <p class="short-desc">Développement complet d'un site web avec base de données.</p>
+                </div>
+                <div class="project-card" onclick="openModal('modal3')">
+                    <div class="card-overlay"></div>
+                    <h3>Analyse Python</h3>
+                    <p class="tech-stack">[Python, Data Analysis]</p>
+                    <p class="short-desc">Étude de la fréquentation de ville via scripts Python.</p>
+                </div>
+            </div>
+        </section>
+        <section id="passions" class="container">
+            <h2 class="section-title"><span class="hash">#</span>PERSONAL_LOGS</h2>
+        
+            <div class="passions-grid">
+        
+                <div class="passion-card gaming-terminal">
+                    <div class="terminal-header">
+                        <span class="blink">>></span> TACTICAL_SIMULATION [CS:GO]
+                    </div>
+                    <p class="passion-desc">Compétition, stratégie d'équipe et réflexes. Analyse de démos et montée en rank.</p>
+                    
+                    <div class="video-frame">
+                        <div class="screen-overlay"></div>
+                        <video controls loop muted autoplay class="cyber-video">
+                            <source src="clip_cs.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la balise vidéo.
+                        </video>
+                        <div class="video-stats">STATUT: ENREGISTREMENT_ACTIF // FPS: 240</div>
+                    </div>
+                </div>
+        
+                <div class="passion-card snow-terminal">
+                    <div class="terminal-header">
+                        <span class="blink">>></span> TERRAIN_ANALYSIS [SNOW]
+                    </div>
+                    <p class="passion-desc">Glisse, adrénaline et maîtrise de l'environnement montagneux hors-connexion.</p>
+                    
+                    <div class="image-frame cyber-filter">
+                        <img src="snowboard.jpg" alt="Snowboard session">
+                        <div class="scan-line"></div> </div>
+                     <div class="video-stats">ALTITUDE: 2500M // VITESSE: MAX</div>
+                </div>
+        
+            </div>
+        </section>
+        <section id="contact" class="container">
+            <h2 class="section-title"><span class="hash">#</span>TRANSMISSION</h2>
+            <div class="contact-wrapper">
+                <form id="contactForm">
+                    <div class="input-group">
+                        <label for="name">ID_UTILISATEUR</label>
+                        <input type="text" id="name" placeholder="Entrez votre nom" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">CANAL_EMAIL</label>
+                        <input type="email" id="email" placeholder="email@exemple.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">PAQUET_DONNÉES</label>
+                        <textarea id="message" rows="5" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-neon">ENVOYER_FLUX</button>
+                    <p id="form-feedback"></p>
+                </form>
+                <div class="contact-info">
+                    <p>LOCATION: Annecy / Poisy [cite: 6]</p>
+                    <p>EMAIL: mendy.timothee@gmail.com [cite: 6]</p>
+                    <p>PHONE: +33 7 69 58 12 16 [cite: 5]</p>
+                    <div class="socials">
+                        <a href="#" class="social-link">GITHUB</a>
+                        <a href="#" class="social-link">LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 TIMOTHÉE MENDY. SYSTEM_READY.</p>
+            <p>Designed with Webcore Aesthetics.</p>
+        </div>
+    </footer>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Gestion Utilisateurs AD</h2>
+            <p><strong>Technologies :</strong> Active Directory, Bash, PowerShell.</p>
+            <p><strong>Détails :</strong> Création massive de 100 utilisateurs, configuration serveurs DNS et DHCP[cite: 59, 60].</p>
+        </div>
+    </div>
+    
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>Site Web Dynamique</h2>
+            <p><strong>Technologies :</strong> HTML5, CSS3, PHP, MySQL.</p>
+            <p><strong>Détails :</strong> Création from scratch, hébergement Apache, sécurisation et débogage[cite: 46, 48].</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>Analyse de Données</h2>
+            <p><strong>Technologies :</strong> Python.</p>
+            <p><strong>Détails :</strong> Utilisation de Python pour analyser la fréquentation urbaine[cite: 60].</p>
+        </div>
+    </div>
+
+    
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+    <script src="script.js"></script>
+</body>
+</html>
