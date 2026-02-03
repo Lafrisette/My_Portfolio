@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="author" content="Timothee.Mendy@etu.univ-smb.fr"/>
+    <meta name="description" content="Ma PWA SAE302"/>
+
+    <meta property="og:description" content="Ma PWA SAE302">
+    <meta property="og:image" content="https://srv-peda2.iut-acy.univ-smb.fr/mendyt/LASTFOLDERPWA/pwa/favicon/og-image-1200x630.png">
+    <meta property="og:locale" content="fr">
+    <meta property="og:title" content="R&T - SAE302">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://srv-peda2.iut-acy.univ-smb.fr/mendyt/LASTFOLDERPWA/pwa/">
+    <meta name="apple-mobile-web-app-title" content="SAE302">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script defer src="./js/pwa.js"></script>
+
+    <link rel="icon" type="image/png" sizes="96x96" href="/mendyt/LASTFOLDERPWA/pwa/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/mendyt/LASTFOLDERPWA/pwa/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/mendyt/LASTFOLDERPWA/pwa/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/mendyt/LASTFOLDERPWA/pwa/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/mendyt/LASTFOLDERPWA/pwa/favicon/site.webmanifest" />
+
+    <title>Safe Breather SAE-302</title>
+</head>
+<body>
+    <main>
+        <section id="map" aria-label="Carte de la qualité de l'air"></section>
+        <aside class="ui-layer">
+            <header class="top-bar-container">
+              <nav class="search-box mdl-shadow--2dp" aria-label="Recherche de ville">
+                    <button id="loc-btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                        <i class="material-icons">my_location</i>
+                    </button>
+                    <input type="text" id="search-input" placeholder="Rechercher une ville..." aria-label="Recherche ville">
+                    <button id="search-btn" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">search</i>
+                    </button>
+                </nav>
+                <section>
+                    <button id="open-route-menu-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Itinéraire</button>
+                    <button id="toggle-info-btn" class="mdl-button mdl-js-button mdl-button--raised">Infos air</button>
+                    <button id="install-btn" class="mdl-button mdl-js-button mdl-button--raised" disabled>installer l'app</button>
+                    <button id="reload-btn" class="mdl-button mdl-js-button mdl-button--raised" disabled>recharger</button>
+                </section>
+                <section id="route-panel" class="route-panel hidden">
+                    <header class="route-panel-header">
+                        <h2>Calculer un trajet</h2>
+                        <button id="close-route-panel" class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </header>
+                    <article>
+                        <input type="text" id="start-city" placeholder="Départ (ex: Paris)">
+                        <input type="text" id="end-city" placeholder="Arrivée (ex: Lyon)">
+                        <button id="calc-route-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Calculer (Auto)</button>
+                        <button id="pos-route-btn" class="mdl-button mdl-js-button mdl-button--raised">depuis ma position</button>
+                        <button id="clear-route-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">effacer itineraire</button>
+                        <p id="pos-route-info" hidden>mode actif: clique sur la carte pour choisir la destination.</p>
+                        <p id="manual-instructions" hidden>Touchez la carte pour placer vos points.</p>
+                    </article>
+                    <input type="text" id="save-name" placeholder="nom de la sauvegarde (ex: paris -> lyon)">
+                    <button id="save-route-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">enregistrer</button>
+                    <h3>Historique</h3>
+                    <ul id="saved-route-list"></ul>
+                </section>
+            </header>
+            <section class="bottom-card" aria-labelledby="aqi-title">
+                <header id="aqi-header">
+                    <h1 id="aqi-title" class="mdl-typography--title">Qualité de l'air</h1>
+                    <p id="location-name">(Position actuelle)</p>
+                </header>
+                <article class="aqi-main">
+                    <h2 id="aqi-value">--</h2>
+                    <i id="face-icon" class="material-icons">face</i>
+                </article>
+                <section class="details-grid">
+                    <article class="detail-item">
+                        <span>PM2.5</span>
+                        <strong id="pm25-val">--</strong>
+                    </article>
+                    <article class="detail-item">
+                        <span>PM10</span>
+                        <strong id="pm10-val">--</strong>
+                    </article>
+                    <article class="detail-item">
+                        <span>Masque ?</span>
+                        <strong id="mask-advice">--</strong>
+                    </article>
+                </section>
+                <section class="info-section">
+                    <button id="info-risk-btn" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">info</i>
+                    </button>
+                </section>
+                <footer>
+                    <p id="health-message">Chargement... Cliquez sur la carte!</p>
+                </footer>
+            </section>
+        </aside>
+        <div id="info-modal" class="info-modal hidden">
+            <div class="info-modal-content">
+                <h3>Risques qualité de l'air</h3>
+                <p id="info-modal-text"></p>
+                <button id="close-info-modal" class="mdl-button mdl-js-button mdl-button--raised">OK</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

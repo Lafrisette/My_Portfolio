@@ -1,0 +1,25 @@
+{
+  "name": "Safe Breather",
+  "short_name": "S.Breath",
+  "icons": [
+    {
+      "src": "/mendyt/LASTFOLDERPWA/pwa/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/mendyt/LASTFOLDERPWA/pwa/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "description": "Safe Breathing Pro",
+  "orientation": "portrait",				
+  "start_url": "https://srv-peda2.iut-acy.univ-smb.fr/mendyt/LASTFOLDERPWA/pwa/",
+  "scope": "https://srv-peda2.iut-acy.univ-smb.fr/mendyt/LASTFOLDERPWA/pwa/"
+}
